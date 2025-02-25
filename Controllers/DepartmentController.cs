@@ -14,6 +14,14 @@ public class DepartmentController : ControllerBase
         _repository = repository;
     }
 
+    [HttpPost("[action]")]
+    public async Task<IActionResult> RegisterAsync(Domain.Department department)
+    {
+        await _repository.AddAsync(department);
+        await _repository.SaveChangesAsync();
+        return Ok(department);
+    }
+
     [HttpGet("[action]/{id}")]
     public async Task<IActionResult> GetByIdAsync(Guid id)
     {
