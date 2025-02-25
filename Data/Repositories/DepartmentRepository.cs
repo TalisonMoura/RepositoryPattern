@@ -24,9 +24,4 @@ public class DepartmentRepository : IDepartmentRepository
     {
         return await _dbSet.Include(x => x.Employees).FirstOrDefaultAsync(x => x.Id == id);
     }
-
-    public async Task<bool> SaveChangesAsync()
-    {
-        return await _context.SaveChangesAsync() > 0;
-    }
 }

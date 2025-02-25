@@ -5,20 +5,22 @@ namespace RepositoryPatternUoW.Controllers;
 
 public class DepartmentController : ControllerBase
 {
+    private readonly IUnitOfWork _unitOfWork;
     private readonly IDepartmentRepository _repository;
     private readonly ILogger<DepartmentController> _logger;
 
-    public DepartmentController(ILogger<DepartmentController> logger, IDepartmentRepository repository)
+    public DepartmentController(ILogger<DepartmentController> logger, IDepartmentRepository repository, IUnitOfWork unitOfWork)
     {
         _logger = logger;
         _repository = repository;
+        _unitOfWork = unitOfWork;
     }
 
     [HttpPost("[action]")]
     public async Task<IActionResult> RegisterAsync(Domain.Department department)
     {
         await _repository.AddAsync(department);
-        await _repository.SaveChangesAsync();
+        await _unitOfWork.CommitAsync();
         return Ok(department);
     }
 

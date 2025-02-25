@@ -23,6 +23,7 @@ public class Program
         });
 
 
+        builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
         builder.Services.AddScoped<IDepartmentRepository, DepartmentRepository>();
 
         builder.Services.AddDbContext<ApplicationContext>(p => p

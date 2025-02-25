@@ -6,5 +6,4 @@ public interface IDepartmentRepository
 {
     Task<Department> GetByIdAsync(Guid id);
     Task AddAsync(Department department);
-    Task<bool> SaveChangesAsync();
 }
