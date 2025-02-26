@@ -21,6 +21,12 @@ public class UnitOfWork : IUnitOfWork
         return await _context.SaveChangesAsync() > 0;
     }
 
+    private IDepartmentRepository _departmentRepository;
+    public IDepartmentRepository DepartmentRepository
+    {
+        get => _departmentRepository ??= new DepartmentRepository(_context);
+    }
+
     public void Dispose()
     {
         _context.Dispose();
