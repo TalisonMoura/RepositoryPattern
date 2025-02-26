@@ -3,7 +3,9 @@ using RepositoryPatternUoW.Data;
 using RepositoryPatternUoW.Domain;
 using Microsoft.EntityFrameworkCore;
 using RepositoryPatternUoW.Data.Repositories;
+using RepositoryPatternUoW.Data.Repositories.Base;
 using RepositoryPatternUoW.Data.Repositories.Interfaces;
+using RepositoryPatternUoW.Data.Repositories.Base.Interfaces;
 
 namespace RepositoryPatternUoW;
 

@@ -1,9 +1,8 @@
 ﻿using RepositoryPatternUoW.Domain;
+using RepositoryPatternUoW.Data.Repositories.Base.Interfaces;
 
 namespace RepositoryPatternUoW.Data.Repositories.Interfaces;
 
-public interface IDepartmentRepository
+public interface IDepartmentRepository : IGenericRepository<Department>
 {
-    Task<Department> GetByIdAsync(Guid id);
-    Task AddAsync(Department department);
 }
